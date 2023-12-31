@@ -1,0 +1,84 @@
+WindowManager:
+    SecondWindow:
+
+<SecondWindow>:
+    name: "second"
+    FloatLayout:
+
+        canvas.before:
+            Color:
+                rgba:(0, 128, 0, 0.5)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Image:
+            source: "img/11.png"
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+
+        Button:
+            text: "正手長球"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            font_size: 50
+            size_hint: 0.2, 0.2
+            pos_hint:{"x":0.1,"y":0.6}
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Long_ball()
+
+
+        Button:
+            text: "反手長球"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            font_size: 50
+            size_hint: 0.2, 0.2
+            pos_hint:{"x":0.1,"y":0.3}
+            on_release:
+                root.Long_ball_back()
+                root.manager.transition.direction = "left"
+        Button:
+            text: "正手小球"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            font_size: 50
+            size_hint: 0.2, 0.2
+            pos_hint:{"x":0.4,"y":0.6}
+            on_release:
+                root.Small_ball()
+                root.manager.transition.direction = "left"
+        Button:
+            text: "反手小球"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            font_size: 50
+            size_hint: 0.2, 0.2
+            pos_hint:{"x":0.4,"y":0.3}
+            on_release:
+                root.Small_ball_back()
+                root.manager.transition.direction = "left"
+        Button:
+            text: "正手挑球"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            font_size: 50
+            size_hint: 0.2, 0.2
+            pos_hint:{"x":0.7,"y":0.6}
+            on_release:
+                root.Pick_ball()
+                root.manager.transition.direction = "left"
+        Button:
+            text: "反手挑球"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            font_size: 50
+            size_hint: 0.2, 0.2
+            pos_hint:{"x":0.7,"y":0.3}
+            on_release:
+                root.Pick_ball_back()
+                root.manager.transition.direction = "left"
+        Button:
+            text: "返回"
+            font_name: 'SourceHanSerifTW-Regular.otf'
+            pos_hint:{"x":0, "top": 1}
+            size_hint: 0.2, 0.15
+            font_size: 50
+            on_release:
+                app.root.current = "badminton"
+                root.manager.transition.direction = "right"
